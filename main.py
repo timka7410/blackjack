@@ -72,10 +72,12 @@ def logo_blackjack():
     print(logo)
 
 def random_card():
+    '''Return a random card from deck'''
     a = random.choice(cards)
     return a
 
 def check_blackjack(l):
+    '''Checking blackjack'''
     if sum(l) < 21:
         return 'min'
     elif sum(l) == 21:
@@ -91,7 +93,7 @@ while input('Do you want play BlackJack? (y/n): ').lower() == 'y':
     player_cards = []
     comp_cards = []
 
-    for i in range(0,2):
+    for _ in range(2):
         player_cards.append(random_card())
         comp_cards.append(random_card())
 
@@ -107,12 +109,12 @@ while input('Do you want play BlackJack? (y/n): ').lower() == 'y':
         print('You lose, opponent has Blackjack')
 
     elif check_blackjack(player_cards) == 'black' and check_blackjack(comp_cards) == 'black':
-        print('pabaiga, lygiosios, win win')
+        print('Game over, win win')
 
     else:
         print(f'Your cards {player_cards}, current score: {sum(player_cards)}')
         print(f"Computer's first card: {comp_cards[0]}")
-        while input('Ar dar reikia kortos? (y/n): ').lower() == 'y':
+        while input('Do you need more cards? (y/n): ').lower() == 'y':
             player_cards.append(random_card())
             print(player_cards)
             if sum(player_cards) > 21:
