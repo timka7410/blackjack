@@ -53,7 +53,7 @@ while input('Do you want play BlackJack? (y/n): ').lower() == 'y':
         print(f"Computer's first card: {comp_cards[0]}")
         while input('Do you need more cards? (y/n): ').lower() == 'y':
             player_cards.append(random_card())
-            print(player_cards)
+            print(f' Your cards: {player_cards}, current score: {sum(player_cards)}' )
             if sum(player_cards) > 21:
                 if 11 in player_cards:
                     i = player_cards.index(11)
